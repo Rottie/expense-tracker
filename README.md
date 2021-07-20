@@ -35,7 +35,7 @@ git clone https://github.com/Rottie/expense-tracker.git
 cd expense-tracker
 
 4C.	安裝相關套件
-npm install express 
+npm install express mongoose
 
 4D.新增種子資料
 npm run seed

@@ -23,6 +23,7 @@ db.once('open', () => {
   console.log('mongodb connected!')
 })
 
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
     

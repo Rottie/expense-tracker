@@ -1,2 +1,11 @@
-
-<h2>Hello world! 這是 index</h2>
+<ul>
+  {{#each records}}
+  <li>ID:{{this._id}}</li>
+  <li>
+    名字:{{this.name}}
+  </li>
+  <li>金額:{{this.amount}}</li>
+  <li>日期:{{this.date}}</li>
+  <li>類別:{{this.category}}</li>
+  {{/each}}
+</ul>

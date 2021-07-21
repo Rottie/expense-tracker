@@ -2,33 +2,35 @@ const express = require('express')
 
 const port = 3000
 
-// // 引用路由器
-// const routes = require('./routes')
 
-// // 將 request 導入路由器
-// app.use(routes)
-const mongoose = require('mongoose') // 載入 mongoose
+const mongoose = require('mongoose') 
 
 const app = express()
-mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true }) // 設定連線到 mongoDB
+mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true }) 
 
-// 取得資料庫連線狀態
 const db = mongoose.connection
-// 連線異常
+
+const exphbs = require('express-handlebars');
+
 db.on('error', () => {
   console.log('mongodb error!')
 })
-// 連線成功
+
+
 db.once('open', () => {
   console.log('mongodb connected!')
 })
 
 app.use(express.urlencoded({ extended: true }));
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
 
 app.get('/', (req, res) => {
-    
-    res.send('rottie')
+  res.render('index')
 })
+
+
+
 app.listen(port, () => {
   console.log(`Express is listening on localhost:${port}`)
 })

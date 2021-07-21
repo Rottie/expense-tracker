@@ -1,11 +1,18 @@
-<ul>
-  {{#each records}}
-  <li>ID:{{this._id}}</li>
-  <li>
-    名字:{{this.name}}
-  </li>
-  <li>金額:{{this.amount}}</li>
-  <li>日期:{{this.date}}</li>
-  <li>類別:{{this.category}}</li>
-  {{/each}}
-</ul>
+<a href="./records/new">Create</a>
+
+{{#each records}}
+<div class="card" style="width: 18rem;">
+
+  <ul>
+
+    <li>ID:{{this._id}}</li>
+    <li>
+      名字:{{this.name}}
+    </li>
+    <li>金額:{{this.amount}}</li>
+    <li>日期:{{this.date}}</li>
+    <li>類別:{{this.category}}</li>
+
+  </ul>
+
+</div>{{/each}}

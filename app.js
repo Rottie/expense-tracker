@@ -33,6 +33,8 @@ app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
 
+app.use(express.urlencoded({ extended: true }))
+
 
 app.get('/', (req, res) => {
   Record.find() // 取出 Todo model 裡的所有資料
@@ -41,6 +43,20 @@ app.get('/', (req, res) => {
     .catch(error => console.error(error)) // 錯誤處理
 })
 
+//Create
+app.get('/records/new', (req, res) => {
+   return res.render('new')
+})
+
+app.post('/records', (req, res) => {
+  const name = req.body.name  
+    const amount = req.body.amount 
+    const date = req.body.date
+    const category = req.body.category      // 從 req.body 拿出表單裡的 name 資料
+  return Record.create({ name,amount,date,category})     // 存入資料庫
+    .then(() => res.redirect('/')) // 新增完成後導回首頁
+    .catch(error => console.log(error))
+})
 
 
 app.listen(port, () => {

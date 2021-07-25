@@ -13,7 +13,7 @@ db.once('open', () => {
   console.log('mongodb connected!')
   for (let i = 0; i < 1; i++) {
     Record.create({ name: 'name-' + i ,amount:500+i,
-    date:1997+i,
+    date:2021-07-30,
     category:"Food"})
   
   }

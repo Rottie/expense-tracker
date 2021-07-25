@@ -13,6 +13,11 @@
     <li>日期:{{this.date}}</li>
     <li>類別:{{this.category}}</li>
 
+    <a href="./records/{{ this._id }}/edit">edit</a><!-- 加入這行 -->
   </ul>
+
+  <form action="./records/{{ this._id }}/delete" method="POST" style="display: inline;">
+    <button type="submit">delete</button>
+  </form>
 
 </div>{{/each}}

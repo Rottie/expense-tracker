@@ -16,7 +16,7 @@
     <a href="./records/{{ this._id }}/edit">edit</a><!-- 加入這行 -->
   </ul>
 
-  <form action="./records/{{ this._id }}/delete" method="POST" style="display: inline;">
+  <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
     <button type="submit">delete</button>
   </form>
 

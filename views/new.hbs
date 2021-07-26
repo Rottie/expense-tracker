@@ -1,14 +1,53 @@
 <form action="/records" method="POST">
-  <input type="text" placeholder="name" name="name">
+  <ul class="list-group"></ul>
+  <div class="input-group mb-3">
+    <li class="list-group-item">
+      <div class="row">
+        <label for="default">*必填單位:</label>
+        <span>
+          <h3 id="defaut" name="default">
+            bi
+          </h3>
+        </span>
+        <br>
+        <div class="col-auto mr-auto">
 
 
-  <input id="number" placeholder="amount" name="amount" type="number">
+          <label for="name">名稱:</label>
+          <span>
+            <input id="name" type="text" placeholder="name" name="name" />
+          </span>
+          <br>
 
-  <input id="date" name="date" placeholder="date" type="date">
+          <label for="number">金額:</label>
+          <span>
+            <input id="number" type="number" placeholder="amount" name="amount" />
+          </span>
+          <br>
 
-  <input type="text" placeholder="category" name="category">
 
-  <a class="btn btn-outline-light" href="/todos/new">Create</a>
+          <label for="date">日期:</label>
+          <span>
+            <input id="date" name="date" placeholder="date" type="date">
+          </span>
+          <br>
+
+          <label for="date">類別:</label>
+          <span>
+            <input type="text" placeholder="category" name="category">
+          </span>
+          <br>
 
 
+        </div>
+      </div>
+
+  </div>
+  </li>
+
+  <div class="col-auto">
+    <button type="submit" class="btn btn-success">Create</button>
+  </div>
+
+  </ul>
 </form>

@@ -3,8 +3,8 @@
 
   <li class="list-group-item">
     <div class="row">
-      <div class="col-auto mr-auto">
 
+      <div class="col-auto mr-auto">
         <h4>ID:{{this._id}}</h4>
         <h4>名字:{{this.name}}</h4>
         <h4>金額:{{this.amount}}</h4>
@@ -13,14 +13,18 @@
       </div>
 
       <div class="col-auto">
-        <a class="btn btn-success" href="./records/{{ this._id }}/edit">edit</a><!-- 加入這行 -->
+        <a class="btn btn-primary" href="./records/{{ this._id }}/edit">edit</a><!-- 加入這行 -->
 
 
         <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
           <button class="btn btn-danger" type="submit">delete</button>
         </form>
+
       </div>
+
     </div>
   </li>
+
   {{/each}}
+  <a class="btn btn-success" href="./records/new">Create</a>
 </ul>

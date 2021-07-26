@@ -1,14 +1,23 @@
 <form action="/records/{{ record._id }}?_method=PUT" method="POST">
 
+  <div class="input-group">
 
-  <input type="text" placeholder="name" name="name" value="{{ record.name }}">
 
-  <input id="number" placeholder="amount" name="amount" type="number" value="{{ record.amount }}">
- 
-  <input id="date" name="date" placeholder="date" type="date" value="Date({{record.date }})">
+    <div class="input-group-prepend">
+      <div class="input-group-text">
+        <input type="text" placeholder="name" name="name" value="{{ record.name }}">
 
-  <input type="text" placeholder="category" name="category" value="{{ record.category }}">
+        <input id="number" placeholder="amount" name="amount" type="number" value="{{ record.amount }}">
 
-  <button type="submit">Save</button>
-  <a href="/">back</a>
+        <input id="date" name="date" placeholder="date" type="date" value="Date({{record.date }})">
+
+        <input type="text" placeholder="category" name="category" value="{{ record.category }}">
+      </div>
+    </div>
+    <div class="input-group-append">
+
+      <button class="btn btn-success" type="submit">Save</button>
+      <a href="/" class="btn btn-secondary">back</a>
+    </div>
+  </div>
 </form>

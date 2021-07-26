@@ -1,23 +1,26 @@
-<a href="./records/new">Create</a>
+<ul class="list-group">
+  {{#each records}}
 
-{{#each records}}
-<div class="card" style="width: 18rem;">
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-auto mr-auto">
 
-  <ul>
+        <h4>ID:{{this._id}}</h4>
+        <h4>名字:{{this.name}}</h4>
+        <h4>金額:{{this.amount}}</h4>
+        <h4>日期:{{this.date}}</h4>
+        <h4>類別:{{this.category}}</h4>
+      </div>
 
-    <li>ID:{{this._id}}</li>
-    <li>
-      名字:{{this.name}}
-    </li>
-    <li>金額:{{this.amount}}</li>
-    <li>日期:{{this.date}}</li>
-    <li>類別:{{this.category}}</li>
+      <div class="col-auto">
+        <a class="btn btn-success" href="./records/{{ this._id }}/edit">edit</a><!-- 加入這行 -->
 
-    <a href="./records/{{ this._id }}/edit">edit</a><!-- 加入這行 -->
-  </ul>
 
-  <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
-    <button type="submit">delete</button>
-  </form>
-
-</div>{{/each}}
+        <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+          <button class="btn btn-danger" type="submit">delete</button>
+        </form>
+      </div>
+    </div>
+  </li>
+  {{/each}}
+</ul>

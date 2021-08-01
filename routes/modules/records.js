@@ -4,11 +4,27 @@ const router = express.Router()
 // 引用 Todo model
 const Record = require('../../models/record')
 const Category = require('../../models/category')
-
+const { dateToString } = require('../../public/javascripts/tools')
 
 //Create
-router.get('/new', (req, res) => {
-   return res.render('new')
+router.get('/new',async (req, res) => {
+  const categories = await Category.find().lean()
+  const categoryData = {}
+  categories.forEach(category => categoryData[category.name] = category.categoryIcon)
+ 
+
+   return  Record.find()
+    .sort({ date: 'asc' })
+    .lean()
+    .then(records => {
+      records.map(record => {
+      record.date = dateToString(record.date)
+        record.categoryIcon = categoryData[record.category]
+      })
+     res.render('new', { records, categories })
+     
+    })
+      .catch(err => console.error(err)) 
 })
 
 //Create
@@ -23,13 +39,25 @@ router.post('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
+
+
 //Update
-router.get('/:id/edit', (req, res) => {
-  const id = req.params.id
-  return Record.findById(id)
+router.get('/:id/edit', async(req, res) => {
+   const id = req.params.id
+ const categories = await Category.find().lean()
+  const categoryData = {}
+  categories.forEach(category => categoryData[category.name] = category.categoryIcon)
+ 
+
+    return Record.findById(id)
     .lean()
-    .then((record) => res.render('edit', { record }))
-    .catch(error => console.log(error))
+    
+    .then(record =>
+   
+    res.render('edit', { record,categories})
+     )
+   
+  .catch(err => console.error(err)) 
 })
 
 //Update

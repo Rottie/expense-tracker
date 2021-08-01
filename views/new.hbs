@@ -32,17 +32,20 @@
           </span>
           <br>
 
-          <label for="date">類別:</label>
+          <label for="category">類別:</label>
           <span>
-            <input type="text" placeholder="category" name="category">
+            <select name="category">
+              <option selected>Select</option>
+
+              {{#each categories}}
+              <option value="{{ this.name }}">{{ this.name }}</option>
+              {{/each}}
+            </select>
           </span>
 
-          <select>
-            {{#with categories}}
-            <option value="{{name}}">Completed</option>
-            {{/with}}
 
-          </select>
+
+
           <br>
 
 

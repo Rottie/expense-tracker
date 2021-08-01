@@ -11,7 +11,16 @@
 
         <input id="date" name="date" placeholder="date" type="date" value="Date({{record.date }})">
 
-        <input type="text" placeholder="category" name="category" value="{{ record.category }}">
+        <select name="category">
+          <option selected>Select</option>
+
+
+          <option value="{{ record.category }}">{{ record.category }}</option>
+
+        </select>
+
+
+
       </div>
     </div>
     <div class="input-group-append">

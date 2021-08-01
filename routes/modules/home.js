@@ -5,7 +5,7 @@ const router = express.Router()
 const Record = require('../../models/record')
 const Category = require('../../models/category')
 
-
+const { dateToString } = require('../../public/javascripts/tools')
 
 
 // 定義首頁路由
@@ -16,11 +16,11 @@ router.get('/', async (req, res) => {
  
   
   return Record.find()
-
+    .sort({ date: 'asc' })
     .lean()
     .then(records => {
       records.map(record => {
-
+      record.date = dateToString(record.date)
         record.categoryIcon = categoryData[record.category]
       })
 

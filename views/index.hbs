@@ -1,15 +1,38 @@
+<option></option>
+
+
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">
+    所有分類
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+    {{#each categories }}
+    <a class="dropdown-item" value={{this.name}} href="#">{{this.name}}</a>
+    {{/each}}
+  </div>
+</div>
+
+
 <ul class="list-group">
+
+
+
   {{#each records}}
 
   <li class="list-group-item">
     <div class="row">
 
       <div class="col-auto mr-auto">
+        <i class="{{ this.categoryIcon }}"></i>
         <h4>ID:{{this._id}}</h4>
         <h4>名字:{{this.name}}</h4>
         <h4>金額:{{this.amount}}</h4>
         <h4>日期:{{this.date}}</h4>
-        <h4>類別:{{this.category}}</h4>
+        <h4>分類:{{this.category}}</h4>
+
       </div>
 
       <div class="col-auto">

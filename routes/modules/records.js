@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 // 引用 Todo model
 const Record = require('../../models/record')
+const Category = require('../../models/category')
 
 
 //Create
@@ -12,7 +13,7 @@ router.get('/new', (req, res) => {
 
 //Create
 router.post('/', (req, res) => {
-  const name = req.body.name  
+   const name = req.body.name  
     const amount = req.body.amount 
     const date = req.body.date
     const category = req.body.category     

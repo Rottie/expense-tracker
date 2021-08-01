@@ -36,6 +36,13 @@
           <span>
             <input type="text" placeholder="category" name="category">
           </span>
+
+          <select>
+            {{#with categories}}
+            <option value="{{name}}">Completed</option>
+            {{/with}}
+
+          </select>
           <br>
 
 

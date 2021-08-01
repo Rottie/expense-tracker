@@ -3,15 +3,38 @@ const express = require('express')
 const router = express.Router()
 // 引用 Todo model
 const Record = require('../../models/record')
+const Category = require('../../models/category')
+
+
 
 
 // 定義首頁路由
-router.get('/', (req, res) => {
-  Record.find()
+router.get('/', async (req, res) => {
+  const categories = await Category.find().lean()
+  const categoryData = {}
+  categories.forEach(category => categoryData[category.name] = category.categoryIcon)
+ 
+  
+  return Record.find()
+
     .lean()
-    .sort({ _id: 'asc' }) // desc
-    .then(records => res.render('index', { records }))
-    .catch(error => console.error(error))
+    .then(records => {
+      records.map(record => {
+
+        record.categoryIcon = categoryData[record.category]
+      })
+
+    res.render('index', { records, categories })
+      
+     
+    })
+    .catch(err => console.error(err))    
+
 })
+
+
+
+
+
 // 匯出路由模組
 module.exports = router

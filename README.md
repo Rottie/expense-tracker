@@ -2,9 +2,11 @@ A8Expense Tracker
 
 
 1.簡介
+
 打造一個簡單的網路記帳工具。核心功能是讓使用者新增、修改與刪除「支出紀錄」。
 
 2.專案功能說明
+
 2A.在首頁一次瀏覽所有支出的清單
 
 2B.在首頁看到所有支出清單的總金額
@@ -20,12 +22,19 @@ A8Expense Tracker
 3.環境建置
 
 3A.開發環境 Visual Studio Code v1.57.1
+
 3B.執行環境 Node.js v10.15.0
+
 3C.框架 Express.js v4.17.1
+
 3D.模板引擎 Express-handlebars v5.3.2
+
 3E.實用套件 Nodemon v2.0.7
+
 3F.資料庫   MongoDB
+
 3G.映射工具 mongoose 5.13.2 
+
 3H.Method Override
 
 4.安裝

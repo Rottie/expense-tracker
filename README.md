@@ -38,7 +38,7 @@ cd expense-tracker
 
 4C.	安裝相關套件
 
-npm install express mongoose
+npm install express mongoose express-handlebars method-override moment 
 
 4D.新增種子資料
 

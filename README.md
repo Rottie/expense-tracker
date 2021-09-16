@@ -18,6 +18,7 @@ A8Expense Tracker
 2F.在首頁可以根據支出「類別」篩選支出；總金額的計算只會包括被篩選出來的支出總和
 
 3.環境建置
+
 3A.開發環境 Visual Studio Code v1.57.1
 3B.執行環境 Node.js v10.15.0
 3C.框架 Express.js v4.17.1
